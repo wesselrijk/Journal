@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class EntryDatabase extends SQLiteOpenHelper {
 
-    static EntryDatabase instance;
+    private static EntryDatabase instance;
 
     // constructor of the class
     private EntryDatabase(Context context, String name, SQLiteDatabase.CursorFactory factory,
@@ -22,7 +22,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
                 ", title TEXT, content TEXT, mood TEXT, timestamp INTEGER);";
         db.execSQL(queryInitial);
         db.execSQL("INSERT INTO journalEntries (title, mood, timestamp) VALUES ('First entry!', " +
-                "'This is your first entry!', 'happy', System.currentTimeMillis())");
+                "'This is your first entry!', 'happy', "+System.currentTimeMillis()+")"); //TODO: check if this works
     }
 
     // this method drops the existing table and creates a new one by calling the oncreate

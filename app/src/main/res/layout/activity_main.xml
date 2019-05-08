@@ -10,14 +10,18 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
         android:clickable="true"
-        app:layout_anchor="@+id/_dynamic"
+        android:onClick="newEntryClicked"
         app:layout_anchorGravity="end|bottom"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
     <ListView
+        android:id="@+id/listView"
+        style="@style/Widget.AppCompat.Light.ListView.DropDown"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:cacheColorHint="#4CAF50">
 
     </ListView>
 </android.support.design.widget.CoordinatorLayout>

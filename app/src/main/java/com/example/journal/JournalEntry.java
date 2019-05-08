@@ -1,9 +1,11 @@
 package com.example.journal;
 
+// (list of) import(s) used
 import java.io.Serializable;
 
 public class JournalEntry implements Serializable {
 
+    // instantiate necessary variables
     private int id;
     private String title;
     private String content;

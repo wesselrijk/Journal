@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listView);
         listView.setOnItemClickListener(new OnItemClickListener());
         listView.setOnItemLongClickListener(new OnItemLongClickListener());
+
+        EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
     }
 
     public void newEntryClicked(View view) {

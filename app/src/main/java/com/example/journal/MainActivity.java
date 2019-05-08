@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener {
+    private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener { //TODO: test this function
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             return false;

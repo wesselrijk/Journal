@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new OnItemLongClickListener());
 
         EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
+        EntryAdapter adapter = new EntryAdapter(this, R.layout.entry_row, db.selectAll());
+        listView.setAdapter(adapter);
     }
 
     public void newEntryClicked(View view) {
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void deleteEntry (Long id) {
+
+    }
 
     private class OnItemClickListener implements AdapterView.OnItemClickListener {
         @Override
@@ -41,4 +46,5 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
+
 }

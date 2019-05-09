@@ -1,9 +1,12 @@
 package com.example.journal;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class EntryDatabase extends SQLiteOpenHelper {
 
@@ -18,11 +21,10 @@ public class EntryDatabase extends SQLiteOpenHelper {
     // the oncreate of the class, a database is created using SQL execs
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String queryInitial = "create table journalEntries (_id INTEGER PRIMARY KEY AUTOINCREMENT" +
-                ", title TEXT, content TEXT, mood TEXT, timestamp INTEGER);";
-        db.execSQL(queryInitial);
-        db.execSQL("INSERT INTO journalEntries (title, mood, timestamp) VALUES ('First entry!', " +
-                "'This is your first entry!', 'happy', "+System.currentTimeMillis()+")"); //TODO: check if this works
+        db.execSQL("create table journalEntries (_id INTEGER PRIMARY KEY AUTOINCREMENT" +
+                ", title TEXT, content TEXT, mood TEXT, timestamp INTEGER);");
+        db.execSQL("INSERT INTO journalEntries (title, content, mood, timestamp) VALUES ('First entry!', " +
+                "'This is your first entry!', 'happy', "+System.currentTimeMillis()+")");
     }
 
     // this method drops the existing table and creates a new one by calling the oncreate
@@ -40,5 +42,21 @@ public class EntryDatabase extends SQLiteOpenHelper {
                     null);
         }
         return instance;
+    }
+
+    public Cursor selectAll() {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.rawQuery("SELECT * FROM journalEntries", null);
+    }
+
+    public void insert(JournalEntry entry) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("title", entry.getTitle());
+        values.put("content", entry.getContent());
+        values.put("mood", entry.getMood());
+        values.put("timestamp", entry.getTimestamp());
+        Long hoi = db.insert("journalEntries", null, values);
+        Log.d("insert", String.valueOf(hoi));
     }
 }

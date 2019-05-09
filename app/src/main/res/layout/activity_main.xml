@@ -13,6 +13,7 @@
         android:backgroundTint="#4CAF50"
         android:clickable="true"
         android:onClick="newEntryClicked"
+        app:layout_anchor="@+id/listView"
         app:layout_anchorGravity="end|bottom"
         app:srcCompat="@android:drawable/ic_menu_add" />
 

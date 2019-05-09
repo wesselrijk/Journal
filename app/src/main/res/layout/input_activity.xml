@@ -73,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_1172122" />
 
             <ImageView
@@ -80,6 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_angry_upset_1172121" />
 
             <ImageView
@@ -87,6 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_crash_bug_dead_1172120" />
 
             <ImageView
@@ -94,6 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_happy_joke_tounge_1172119" />
 
             <ImageView
@@ -101,6 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_happy_smile_1172131" />
 
             <ImageView
@@ -108,6 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_happy_smile_successful_1172130" />
 
             <ImageView
@@ -115,6 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_love_lovely_1172127" />
 
             <ImageView
@@ -122,6 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_sad_1172128" />
 
             <ImageView
@@ -129,6 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_sad_crying_1172126" />
 
             <ImageView
@@ -136,6 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_sad_tear_1172125" />
 
             <ImageView
@@ -143,6 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_sick_ill_trouble_1172124" />
 
             <ImageView
@@ -150,6 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_smile_happy_successful_1172129" />
 
             <ImageView
@@ -157,6 +169,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="moodClicked"
                 app:srcCompat="@drawable/iconfinder_android_robot_mobile_sleeping_tired_1172123" />
         </LinearLayout>
     </ScrollView>

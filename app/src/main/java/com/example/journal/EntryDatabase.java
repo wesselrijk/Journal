@@ -59,4 +59,10 @@ public class EntryDatabase extends SQLiteOpenHelper {
         Long hoi = db.insert("journalEntries", null, values);
         Log.d("insert", String.valueOf(hoi));
     }
+
+    public void deleteEntry (Long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        Log.d("actually delete", "actual bam!");
+        db.execSQL("DELETE FROM journalEntries WHERE _id = " + id);
+    }
 }

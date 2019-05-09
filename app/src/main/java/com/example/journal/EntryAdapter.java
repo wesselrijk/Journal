@@ -12,7 +12,7 @@ public class EntryAdapter extends ResourceCursorAdapter {
 
     private Cursor cursor;
 
-    // constructor TODO: why is super deprecated
+    // constructor
     public EntryAdapter(Context context, int layout, Cursor cursor) {
         super(context, layout, cursor);
         this.cursor = cursor;

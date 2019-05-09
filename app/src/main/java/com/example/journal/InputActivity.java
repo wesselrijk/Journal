@@ -1,16 +1,20 @@
 package com.example.journal;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class InputActivity extends AppCompatActivity {
 
 
+    ImageView clickedImage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,12 +28,25 @@ public class InputActivity extends AppCompatActivity {
         EditText content = findViewById(R.id.editContent);
 
         JournalEntry entry = new JournalEntry(String.valueOf(title.getText()),
-                String.valueOf(content.getText()), "happy");
+                String.valueOf(content.getText()), "mood");
         db.insert(entry);
-
-        Intent intent = new Intent(InputActivity.this, MainActivity.class);
-        startActivity(intent);
         finish();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    public void moodClicked(View view) {
+        ImageView image = (ImageView) view;
+        image.setBackgroundColor(0xFF7CB342);
+        if (clickedImage != null) {
+            clickedImage.setBackgroundColor(0x00000000);
+        }
+        Drawable myDrawable = image.getDrawable();
+        String imageFile = String.valueof(myDrawable);
+
+        clickedImage = image;
+    }
 }

@@ -3,11 +3,15 @@ package com.example.journal;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EntryAdapter adapter;
+    private EntryDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +22,15 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new OnItemClickListener());
         listView.setOnItemLongClickListener(new OnItemLongClickListener());
 
-        EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
-        EntryAdapter adapter = new EntryAdapter(this, R.layout.entry_row, db.selectAll());
+        db = EntryDatabase.getInstance(getApplicationContext());
+        adapter = new EntryAdapter(this, R.layout.entry_row, db.selectAll());
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateData();
     }
 
     public void newEntryClicked(View view) {
@@ -28,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void deleteEntry (Long id) {
-
-    }
 
     private class OnItemClickListener implements AdapterView.OnItemClickListener {
         @Override
@@ -40,11 +47,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener { //TODO: test this function
+    private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            db.deleteEntry(id);
+            updateData();
             return false;
         }
+    }
+
+    private void updateData() {
+        adapter.swapCursor(db.selectAll());
     }
 
 }

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             db.deleteEntry(id);
             updateData();
-            return false;
+            return true;
         }
     }
 

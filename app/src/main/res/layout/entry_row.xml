@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="116dp">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
+        android:id="@+id/entryMood"
+        android:layout_width="240dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginBottom="14dp"
         android:layout_weight="1"
-        app:srcCompat="@android:color/darker_gray" />
+        app:srcCompat="@android:color/darker_gray"
+        tools:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_happy_smile_1172131" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,9 +26,10 @@
             android:id="@+id/entryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="26dp"
             android:layout_weight="1"
-            android:fontFamily="cursive"
+            android:fontFamily="casual"
             android:text="Display Title of entry"
             android:textColor="#8BC34A"
             android:textSize="24sp" />
@@ -33,9 +38,11 @@
             android:id="@+id/entryDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="12dp"
             android:layout_weight="1"
-            android:text="Displays date of entry" />
+            android:text="Displays date of entry"
+            android:textSize="12sp" />
 
     </LinearLayout>
 

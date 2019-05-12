@@ -14,7 +14,8 @@ import android.widget.TextView;
 public class InputActivity extends AppCompatActivity {
 
 
-    ImageView clickedImage;
+    private ImageView clickedImage;
+    private String mood = "mood";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class InputActivity extends AppCompatActivity {
         EditText content = findViewById(R.id.editContent);
 
         JournalEntry entry = new JournalEntry(String.valueOf(title.getText()),
-                String.valueOf(content.getText()), "mood");
+                String.valueOf(content.getText()), mood);
         db.insert(entry);
         finish();
     }
@@ -40,12 +41,11 @@ public class InputActivity extends AppCompatActivity {
 
     public void moodClicked(View view) {
         ImageView image = (ImageView) view;
-        image.setBackgroundColor(0xFF7CB342);
+        image.setBackgroundColor(0xFF689F38);
         if (clickedImage != null) {
             clickedImage.setBackgroundColor(0x00000000);
         }
-        Drawable myDrawable = image.getDrawable();
-        String imageFile = String.valueof(myDrawable);
+        mood = String.valueOf(image.getTag());
 
         clickedImage = image;
     }

@@ -46,8 +46,9 @@
                 android:layout_weight="0"
                 android:ems="10"
                 android:hint="Content"
-                android:inputType="textLongMessage|text"
-                android:selectAllOnFocus="false"
+                android:inputType="textCapSentences|textNoSuggestions|textMultiLine"
+                android:background="@null"
+                android:scrollHorizontally="false"
                 android:textAlignment="viewStart" />
         </LinearLayout>
     </ScrollView>

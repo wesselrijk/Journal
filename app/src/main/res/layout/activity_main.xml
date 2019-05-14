@@ -10,11 +10,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:backgroundTint="#4CAF50"
         android:clickable="true"
         android:onClick="newEntryClicked"
+        app:backgroundTint="#689F38"
         app:layout_anchor="@+id/listView"
         app:layout_anchorGravity="end|bottom"
+        app:maxImageSize="30dp"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
     <ListView

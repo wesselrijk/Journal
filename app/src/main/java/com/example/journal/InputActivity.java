@@ -46,7 +46,6 @@ public class InputActivity extends AppCompatActivity {
             clickedImage.setBackgroundColor(0x00000000);
         }
         mood = String.valueOf(image.getTag());
-
         clickedImage = image;
     }
 }

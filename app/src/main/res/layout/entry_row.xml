@@ -3,47 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="116dp">
-
-    <ImageView
-        android:id="@+id/entryMood"
-        android:layout_width="240dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="-20dp"
-        android:layout_marginBottom="14dp"
-        android:layout_weight="1"
-        app:srcCompat="@android:color/darker_gray"
-        tools:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_happy_smile_1172131" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/entryTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/entryMood"
+            android:layout_width="240dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="-20dp"
             android:layout_weight="1"
-            android:fontFamily="casual"
-            android:text="Display Title of entry"
-            android:textColor="#8BC34A"
-            android:textSize="24sp" />
+            app:srcCompat="@android:color/darker_gray"
+            tools:srcCompat="@drawable/iconfinder_android_robot_mobile_mood_emoji_happy_smile_1172131" />
 
-        <TextView
-            android:id="@+id/entryDate"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="12dp"
             android:layout_weight="1"
-            android:text="Displays date of entry"
-            android:textSize="12sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/entryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="26dp"
+                android:layout_weight="0"
+                android:ellipsize="none"
+                android:fontFamily="casual"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="false"
+                android:text="Display Title of entry"
+                android:textColor="#8BC34A"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/entryDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="0"
+                android:text="Displays date of entry"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#7CB342" />
 
 </LinearLayout>

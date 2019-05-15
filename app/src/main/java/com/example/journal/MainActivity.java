@@ -1,9 +1,9 @@
 package com.example.journal;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,12 +38,29 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     private class OnItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-            startActivity(intent);
+            Cursor cursor = db.selectEntry(id);
+
+            /* check if a cursor is null and check for moveToFirst()
+            https://android.wekeepcoding.com/article/21027603/android.database.
+            CursorIndexOutOfBoundsException%3A+Index+0+requested%2C+with+a+size+of+0 */
+            if( cursor != null && cursor.moveToFirst() ){
+
+                // get all data from the cursor
+                String title = cursor.getString(cursor.getColumnIndex("title"));
+                String content = cursor.getString(cursor.getColumnIndex("content"));
+                String mood = cursor.getString(cursor.getColumnIndex("mood"));
+                Long timestamp = cursor.getLong(cursor.getColumnIndex("timestamp"));
+                cursor.close();
+
+                // create the clicked journal entry and create a new intent with it
+                JournalEntry clickedJournal = new JournalEntry(title, content, mood, timestamp);
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra("clicked_journal", clickedJournal);
+                startActivity(intent);
+            }
         }
     }
 

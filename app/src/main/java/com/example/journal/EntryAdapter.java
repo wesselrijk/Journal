@@ -31,9 +31,9 @@ public class EntryAdapter extends ResourceCursorAdapter {
         String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
                 DateFormat.SHORT).format(timestamp);
 
-
+        // switch over the mood to display the corresponding image
         switch(mood){
-            case "tired":
+            case "mood":
                 imageView.setImageResource(R.drawable.
                         iconfinder_android_robot_mobile_mood_emoji_1172122);
                 break;
@@ -81,7 +81,7 @@ public class EntryAdapter extends ResourceCursorAdapter {
                 imageView.setImageResource(R.drawable.
                         iconfinder_android_robot_mobile_mood_emoji_smile_happy_successful_1172129);
                 break;
-            case "mood":
+            case "tired":
                 imageView.setImageResource(R.drawable.
                         iconfinder_android_robot_mobile_sleeping_tired_1172123);
                 break;

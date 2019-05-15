@@ -1,15 +1,11 @@
 package com.example.journal;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class InputActivity extends AppCompatActivity {
 
@@ -29,7 +25,7 @@ public class InputActivity extends AppCompatActivity {
         EditText content = findViewById(R.id.editContent);
 
         JournalEntry entry = new JournalEntry(String.valueOf(title.getText()),
-                String.valueOf(content.getText()), mood);
+                String.valueOf(content.getText()), mood, System.currentTimeMillis());
         db.insert(entry);
         finish();
     }

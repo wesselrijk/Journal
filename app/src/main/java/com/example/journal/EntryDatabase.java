@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class EntryDatabase extends SQLiteOpenHelper {
 
@@ -49,6 +48,11 @@ public class EntryDatabase extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM journalEntries", null);
     }
 
+    public Cursor selectEntry(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.rawQuery("SELECT * FROM journalEntries WHERE _id IS " + id, null);
+    }
+
     public void insert(JournalEntry entry) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -57,12 +61,10 @@ public class EntryDatabase extends SQLiteOpenHelper {
         values.put("mood", entry.getMood());
         values.put("timestamp", entry.getTimestamp());
         Long hoi = db.insert("journalEntries", null, values);
-        Log.d("insert", String.valueOf(hoi));
     }
 
     public void deleteEntry (Long id) {
         SQLiteDatabase db = getWritableDatabase();
-        Log.d("actually delete", "actual bam!");
         db.execSQL("DELETE FROM journalEntries WHERE _id = " + id);
     }
 }

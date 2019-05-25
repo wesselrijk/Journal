@@ -1,17 +1,20 @@
 package com.example.journal;
+/**
+ * The JournalEntry class for the app.
+ * This is the class that holds the information for any journal entry. This includes the title,
+ * the content, the mood that has been set and the timestamp at which time the entry was created.
+ */
 
-// (list of) import(s) used
 import java.io.Serializable;
 
 public class JournalEntry implements Serializable {
 
-    // instantiate necessary variables
     private String title;
     private String content;
     private String mood;
     private Long timestamp;
 
-    // Constructor of the class
+    // Constructor of the class sets initialized variables.
     public JournalEntry(String title, String content, String mood, Long timestamp) {
         this.title = title;
         this.content = content;
@@ -19,7 +22,7 @@ public class JournalEntry implements Serializable {
         this.timestamp = timestamp;
     }
 
-    // list of getters
+    // List of getters.
     public String getTitle() { return this.title; }
     public String getContent() {return this.content; }
     public String getMood() { return this.mood; }

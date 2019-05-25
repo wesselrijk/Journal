@@ -1,5 +1,11 @@
 package com.example.journal;
+/**
+ * The EntryAdapter adapter for the app.
+ * The adapter is set to a ListView in the activity_main. Then the adapter will fill in the items
+ * in the list of the ListView with information it is being fed from the database.
+ */
 
+// List of imports.
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
@@ -11,11 +17,12 @@ import java.text.DateFormat;
 
 public class EntryAdapter extends ResourceCursorAdapter {
 
-    // constructor
+    // Constructor of the adapter calls super.
     public EntryAdapter(Context context, int layout, Cursor cursor) {
         super(context, layout, cursor);
     }
 
+    // The visual representation for the ListView in the activity_main is set.
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         ImageView imageView = view.findViewById(R.id.entryMood);
@@ -26,12 +33,13 @@ public class EntryAdapter extends ResourceCursorAdapter {
         Long timestamp = cursor.getLong(cursor.getColumnIndex("timestamp"));
         String mood = cursor.getString(cursor.getColumnIndex("mood"));
 
-        /* convert date https://stackoverflow.com/questions/454315/
-        how-do-you-format-date-and-time-in-android */
+        /* Convert timestamp to a date in a readable format, used: https://stackoverflow.com/
+        * questions/454315/how-do-you-format-date-and-time-in-android
+        */
         String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
                 DateFormat.SHORT).format(timestamp);
 
-        // switch over the mood to display the corresponding image
+        // Switch over the mood to display the corresponding image.
         switch(mood){
             case "mood":
                 imageView.setImageResource(R.drawable.
